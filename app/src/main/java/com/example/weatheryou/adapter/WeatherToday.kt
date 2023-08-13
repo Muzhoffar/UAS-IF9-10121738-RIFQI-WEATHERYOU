@@ -45,7 +45,7 @@ class WeatherToday : RecyclerView.Adapter<TodayHolder>() {
         
         val calendar = Calendar.getInstance()
 
-// Define the desired format
+        // Define the desired format
         val dateFormat = SimpleDateFormat("HH::mm")
         val formattedTime = dateFormat.format(calendar.time)
         val timeofapi = todayForeCast.dtTxt!!.split(" ")

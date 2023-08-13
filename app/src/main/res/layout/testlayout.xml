@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -40,14 +41,18 @@
                         <androidx.appcompat.widget.SearchView
                             android:id="@+id/searchView"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            app:searchIcon="@drawable/search_icon"
+                            android:backgroundTint="#32000000"
+                            android:searchHintIcon="@drawable/search_icon"
+                            style="@style/CustomCardViewStyle"/>
 
                         <TextView
                             android:id="@+id/cityName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_margin="10dp"
+                            android:layout_margin="16dp"
                             android:text="@{vm.cityName}"
                             android:textColor="@android:color/white"
                             android:textSize="20sp"
@@ -104,7 +109,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
-                        android:layout_marginStart="4dp"
                         android:orientation="horizontal">
 
                         <!-- Column 1 -->
@@ -258,7 +262,7 @@
                             android:id="@+id/forecastRecyclerView"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_margin="10dp"
+                            android:layout_margin="16dp"
                             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                             android:orientation="vertical" />
 

@@ -88,9 +88,9 @@ class MainActivity : AppCompatActivity() {
             binding.humidityMain.text = it.main!!.humidity.toString()
             binding.windSpeed.text = it.wind?.speed.toString()
             
-            val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+            val inputFormat = SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault())
             val date = inputFormat.parse(it.dtTxt!!)
-            val outputFormat = SimpleDateFormat("d MMMM EEEE", Locale.getDefault())
+            val outputFormat = SimpleDateFormat("EEEE, d MMMM", Locale.getDefault())
             val dateanddayname = outputFormat.format(date!!)
 
             binding.dateDayMain.text = dateanddayname
@@ -228,11 +228,14 @@ class MainActivity : AppCompatActivity() {
             } else {
                 // Permissions denied, handle accordingly
                 // For example, show an error message or disable location-based features
+                Toast.makeText(this, "Location permission denied. Some features may not work properly.", Toast.LENGTH_SHORT).show()
+                Log.d("Permission Denied", "Location permission denied.")
             }
         }
     }
 
     // Function to get the current location
+    @SuppressLint("MissingPermission")
     @RequiresApi(Build.VERSION_CODES.O)
     private fun getCurrentLocation() {
         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -256,20 +259,25 @@ class MainActivity : AppCompatActivity() {
                 val myprefs = SharedPrefs(this)
                 myprefs.setValue("lon", longitude.toString())
                 myprefs.setValue("lat", latitude.toString())
-                
+
                 // Example: Display latitude and longitude in logs
                 Toast.makeText(this, "Latitude: $latitude, Longitude: $longitude", Toast.LENGTH_SHORT).show()
                 Log.d("Current Location", "Latitude: $latitude, Longitude: $longitude")
 
                 // Reverse geocode the location to get address information
                 reverseGeocodeLocation(latitude, longitude)
+
             } else {
                 // Location is null, handle accordingly
                 // For example, request location updates or show an error message
+                Toast.makeText(this, "Unable to retrieve location. Please make sure location services are enabled.", Toast.LENGTH_SHORT).show()
+                Log.d("Location Error", "Unable to retrieve location.")
             }
         } else {
             // Location permission not granted, handle accordingly
             // For example, show an error message or disable location-based features
+            Toast.makeText(this, "Location permission not granted. Some features may not work properly.", Toast.LENGTH_SHORT).show()
+            Log.d("Permission Error", "Location permission not granted.")
         }
     }
 
@@ -287,6 +295,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             // No address found, handle accordingly
             // For example, show an error message or use default address values
+            Log.d("Address Error", "No address found for the given location.")
         }
     }
 }

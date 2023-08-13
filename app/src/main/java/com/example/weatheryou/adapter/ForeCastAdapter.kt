@@ -47,9 +47,9 @@ class ForeCastAdapter : RecyclerView.Adapter<ForeCastHolder>() {
         
         holder.temp.text = "$temperatureFormatted °C"
         
-        val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+        val inputFormat = SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault())
         val date = inputFormat.parse(forecastObject.dtTxt!!)
-        val outputFormat = SimpleDateFormat("d MMMM EEEE", Locale.getDefault())
+        val outputFormat = SimpleDateFormat("EEEE, d MMMM", Locale.getDefault())
         val dateanddayname = outputFormat.format(date!!)
 
         holder.dateDayName.text = dateanddayname
