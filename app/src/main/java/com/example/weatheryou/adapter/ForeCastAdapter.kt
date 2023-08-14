@@ -47,7 +47,7 @@ class ForeCastAdapter : RecyclerView.Adapter<ForeCastHolder>() {
         
         holder.temp.text = "$temperatureFormatted °C"
         
-        val inputFormat = SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault())
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
         val date = inputFormat.parse(forecastObject.dtTxt!!)
         val outputFormat = SimpleDateFormat("EEEE, d MMMM", Locale.getDefault())
         val dateanddayname = outputFormat.format(date!!)
@@ -124,10 +124,10 @@ class ForeCastAdapter : RecyclerView.Adapter<ForeCastHolder>() {
 
 class ForeCastHolder(itemView: View) : ViewHolder(itemView){
     val imageGraphic: ImageView = itemView.findViewById(R.id.imageGraphic)
-    val description : TextView = itemView.findViewById(R.id.weatherDescr)
-    val humiditiy : TextView = itemView.findViewById(R.id.humidity)
-    val windspeed : TextView = itemView.findViewById(R.id.windSpeed)
-    val temp : TextView = itemView.findViewById(R.id.tempDisplayForeCast)
-    val smallIcon : ImageView = itemView.findViewById(R.id.smallIcon)
-    val dateDayName : TextView = itemView.findViewById(R.id.dayDateText)
+    val description : TextView  = itemView.findViewById(R.id.weatherDescr)
+    val humiditiy   : TextView  = itemView.findViewById(R.id.humidity)
+    val windspeed   : TextView  = itemView.findViewById(R.id.windSpeed)
+    val temp        : TextView  = itemView.findViewById(R.id.tempDisplayForeCast)
+    val smallIcon   : ImageView = itemView.findViewById(R.id.smallIcon)
+    val dateDayName : TextView  = itemView.findViewById(R.id.dayDateText)
 }

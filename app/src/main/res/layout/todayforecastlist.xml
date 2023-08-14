@@ -12,7 +12,7 @@
             android:layout_weight="1"
             android:text="11:00"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginBottom="8dp"
             android:id="@+id/timeDisplay" />
@@ -33,7 +33,7 @@
             android:text="21"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginBottom="4dp"
             android:id="@+id/tempDisplay" />

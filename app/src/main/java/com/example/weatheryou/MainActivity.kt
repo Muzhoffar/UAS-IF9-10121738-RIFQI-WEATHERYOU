@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
             binding.humidityMain.text = it.main!!.humidity.toString()
             binding.windSpeed.text = it.wind?.speed.toString()
             
-            val inputFormat = SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault())
+            val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
             val date = inputFormat.parse(it.dtTxt!!)
             val outputFormat = SimpleDateFormat("EEEE, d MMMM", Locale.getDefault())
             val dateanddayname = outputFormat.format(date!!)
